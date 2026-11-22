@@ -4,7 +4,7 @@ This repository holds the **Foundations analysis** that starts from the frozen S
 
 The preprocessing and three-layer A / B / C build live in the companion repository: [pic-preprocessing-layers](https://github.com/mvinai/pic-preprocessing-layers).
 
-**Authors.** Vinai (principal investigator), with contributions from Habib, Vinay and Yashwant. Scripts were written with AI assistance and validated on synthetic data before any real PIC run.
+**Authors.** Vinai Modem (principal investigator), with contributions from Habib Fipa, Vinay Datta Ilapuram and Yashwant Bunga. Scripts were written with AI assistance and validated on synthetic data before any real PIC run.
 
 This repository is released under the MIT License. Copyright (c) 2026 Vinai Modem. See [`LICENSE`](LICENSE).
 
