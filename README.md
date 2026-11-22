@@ -6,7 +6,7 @@ The preprocessing and three-layer A / B / C build live in the companion reposito
 
 **Authors.** Vinai (principal investigator), with contributions from Habib, Vinay and Yashwant. Scripts were written with AI assistance and validated on synthetic data before any real PIC run.
 
-This repository is released under the MIT License. Copyright (c) 2026 Vinai Modem. See `LICENSE`.
+This repository is released under the MIT License. Copyright (c) 2026 Vinai Modem. See [`LICENSE`](LICENSE).
 
 ## What this is not
 
@@ -16,21 +16,21 @@ This is not a copy of the [Paediatric Intensive Care (PIC) database](https://phy
 
 The analysis is organised as a sequence of **runs**. Each run has a script, a test module that builds its own tiny synthetic project, and a specification.
 
-| Run | Stages | Script (under `scripts/`) | Package version |
+| Run | Stages | Script (under [`scripts/`](scripts)) | Package version |
 |---|---|---|---|
-| Run 1 | 09p, 09, 10 | `stage09_18_r1/r1_09p_09_10_spectral_lowrank.py` | v1.0.2 |
-| Run 2 | 11p, 11, 12, 17 | `stage11_18_r2/r2_11p_11_12_17_models.py` | v1.0.0 |
-| Run 3a | 14, 18 (test scoring) | `stage13_18_r3/r3a_14_18_test_scoring.py` | v1.0.0 |
-| Run 3b | 13, 16, 18 (train/validation only) | `stage13_18_r3/r3b_13_16_18_attribution.py` | v1.1.0 |
-| Desktop Tier 1 | 14 + 18 (3a) and 13 + 16 + 18 (3b), full settings | `stage13_18_r3_desktop/r3a_desktop_full.py`, `r3b_desktop_full.py` | **r3a v2.0.1-desktop**, **r3b v2.0.2-desktop** |
-| Desktop Tier 2 | sequence-model family comparison | `stage13_18_r3_desktop/r4_desktop_seq_models.py` | v1.0.1-desktop |
-| Desktop Tier 3 | Stage 15 Layer C levels (raw / normalized / engineered) | `stage13_18_r3_desktop/r5_desktop_layer_c_levels.py` | v1.0.1-desktop |
+| Run 1 | 09p, 09, 10 | [`stage09_18_r1/r1_09p_09_10_spectral_lowrank.py`](scripts/stage09_18_r1/r1_09p_09_10_spectral_lowrank.py) | v1.0.2 |
+| Run 2 | 11p, 11, 12, 17 | [`stage11_18_r2/r2_11p_11_12_17_models.py`](scripts/stage11_18_r2/r2_11p_11_12_17_models.py) | v1.0.0 |
+| Run 3a | 14, 18 (test scoring) | [`stage13_18_r3/r3a_14_18_test_scoring.py`](scripts/stage13_18_r3/r3a_14_18_test_scoring.py) | v1.0.0 |
+| Run 3b | 13, 16, 18 (train/validation only) | [`stage13_18_r3/r3b_13_16_18_attribution.py`](scripts/stage13_18_r3/r3b_13_16_18_attribution.py) | v1.1.0 |
+| Desktop Tier 1 | 14 + 18 (3a) and 13 + 16 + 18 (3b), full settings | [`stage13_18_r3_desktop/r3a_desktop_full.py`](scripts/stage13_18_r3_desktop/r3a_desktop_full.py), [`r3b_desktop_full.py`](scripts/stage13_18_r3_desktop/r3b_desktop_full.py) | **r3a v2.0.1-desktop**, **r3b v2.0.2-desktop** |
+| Desktop Tier 2 | sequence-model family comparison | [`stage13_18_r3_desktop/r4_desktop_seq_models.py`](scripts/stage13_18_r3_desktop/r4_desktop_seq_models.py) | v1.0.1-desktop |
+| Desktop Tier 3 | Stage 15 Layer C levels (raw / normalized / engineered) | [`stage13_18_r3_desktop/r5_desktop_layer_c_levels.py`](scripts/stage13_18_r3_desktop/r5_desktop_layer_c_levels.py) | v1.0.1-desktop |
 
-The folder layout under `scripts/` matches the project layout used in the Copilot instruction notes (`scripts\stage09_18_r1\`, `scripts\stage11_18_r2\`, `scripts\stage13_18_r3\`, `scripts\stage13_18_r3_desktop\`), so those notes still point at the same relative paths.
+The folder layout under [`scripts/`](scripts) matches the project layout used in the Copilot instruction notes ([`scripts\stage09_18_r1\`](scripts/stage09_18_r1), [`scripts\stage11_18_r2\`](scripts/stage11_18_r2), [`scripts\stage13_18_r3\`](scripts/stage13_18_r3), [`scripts\stage13_18_r3_desktop\`](scripts/stage13_18_r3_desktop)), so those notes still point at the same relative paths.
 
 ### Desktop Tier 1 package version
 
-Desktop Tier 1 ships **r3a v2.0.1-desktop** and **r3b v2.0.2-desktop**. v2.0.2 keeps the v2.0.1 settings and disables cuDNN only around the expected-gradients backward pass (the cuDNN GRU backward does not run when the frozen network is in eval mode). These public copies may differ slightly from the private desktop packages; see `docs/PUBLIC_REDACTIONS.md`.
+Desktop Tier 1 ships **r3a v2.0.1-desktop** and **r3b v2.0.2-desktop**. v2.0.2 keeps the v2.0.1 settings and disables cuDNN only around the expected-gradients backward pass (the cuDNN GRU backward does not run when the frozen network is in eval mode). These public copies may differ slightly from the private desktop packages; see [`docs/PUBLIC_REDACTIONS.md`](docs/PUBLIC_REDACTIONS.md).
 
 ## Environment
 
@@ -44,7 +44,7 @@ The released runs used:
 - matplotlib 3.10.8
 - torch 2.10 (CPU is enough for the tests; the desktop full runs used CUDA)
 
-See `requirements.txt`.
+See [`requirements.txt`](requirements.txt).
 
 ```bash
 python -m venv .venv
@@ -75,16 +75,16 @@ A small number of tests may be skipped on this platform (for example a read-only
 
 ## Documentation
 
-Final specifications and the analysis protocol are under `docs/`:
+Final specifications and the analysis protocol are under [`docs/`](docs):
 
-- `docs/plan/revised_plan_v13.md` — analysis plan
-- `docs/plan/foundations_contract_v13.md` — data and analysis contract
-- `docs/plan/stage09_18_plan.md` — stages 09–18 run plan
-- `docs/specs/` — per-run specifications
-- `docs/copilot/` — the instruction notes used to launch the real runs (hashes are of the private packages; see `docs/PUBLIC_REDACTIONS.md`)
+- [`docs/plan/revised_plan_v13.md`](docs/plan/revised_plan_v13.md) — analysis plan
+- [`docs/plan/foundations_contract_v13.md`](docs/plan/foundations_contract_v13.md) — data and analysis contract
+- [`docs/plan/stage09_18_plan.md`](docs/plan/stage09_18_plan.md) — stages 09–18 run plan
+- [`docs/specs/`](docs/specs) — per-run specifications
+- [`docs/copilot/`](docs/copilot) — the instruction notes used to launch the real runs (hashes are of the private packages; see [`docs/PUBLIC_REDACTIONS.md`](docs/PUBLIC_REDACTIONS.md))
 
 Cohort and split sizes have been omitted from the public copies of the plan and contract.
 
 ## Citation
 
-See `CITATION.cff`.
+See [`CITATION.cff`](CITATION.cff).
